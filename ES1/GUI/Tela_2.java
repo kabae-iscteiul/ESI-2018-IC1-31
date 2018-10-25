@@ -2,6 +2,8 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,9 +17,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+
 import java.awt.Color;
 
 public class Tela_2 extends JFrame {
@@ -56,11 +62,10 @@ public class Tela_2 extends JFrame {
 		
 		JButton btnNewButton = new JButton("Twettar");
 		btnNewButton.setBackground(Color.CYAN);
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
-			
-		try {
+				try {
 		        	ConfigurationBuilder cb = new ConfigurationBuilder();
 		        	cb.setDebugEnabled(true)
 		        	  .setOAuthConsumerKey("2yLs0GI3Rs3V9o9ncHGLEg3OL")
@@ -70,41 +75,17 @@ public class Tela_2 extends JFrame {
 		        	TwitterFactory tf = new TwitterFactory(cb.build());
 		        	twitter4j.Twitter twitter = tf.getInstance();        		
 		            List<Status> statuses = twitter.getHomeTimeline();
-		            System.out.println("------------------------\n Showing home timeline \n------------------------");
-		    		
-		            //twitter4j.Twitter tw=tf.getInstance();
 		            
-		          
-		           twitter4j.Twitter tw=tf.getInstance();
+		            twitter4j.Twitter tw=tf.getInstance();
 		            Status stat= tw.updateStatus(textField10.getText());
-		            
-		            
-		            
-		            //Status stat = ((TweetsResources) tf).updateStatus(" Welcome to my twitter");
-		            
-		            int counter=0;
-		    		int counterTotal = 0;
-		            for (Status status : statuses) {
-		            	
-						// Filters only tweets from user "catarina"
-		            	
-		            	// Temos que colocar os nossos Twitters aqui **********
-		            	
-						if (status.getUser().getName() != null && status.getUser().getName().contains("Iran Carimo")) {
-							System.out.println(status.getUser().getName() + ":" + status.getText());
-							counter++;
-						}
-						counterTotal++;
-		            }
-		    		System.out.println("-------------\nNº of Results: " + counter+"/"+counterTotal);
-		        } catch (Exception e) { System.out.println(e.getMessage()); }
-			
-			
-			
-			
+				
+				} catch(Exception e) { System.out.println(e.getMessage()); }
+				
+				JOptionPane.showMessageDialog(contentPane, "Tweet publicado com sucesso.");
 			
 			}
 		});
+		
 		btnNewButton.setBounds(158, 127, 151, 25);
 		contentPane.add(btnNewButton);
 		
@@ -122,7 +103,6 @@ public class Tela_2 extends JFrame {
 		
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
 				try {
 		        	ConfigurationBuilder cb = new ConfigurationBuilder();
 		        	cb.setDebugEnabled(true)
@@ -133,12 +113,23 @@ public class Tela_2 extends JFrame {
 		        	TwitterFactory tf = new TwitterFactory(cb.build());
 		        	twitter4j.Twitter twitter = tf.getInstance();        		
 		            List<Status> statuses = twitter.getHomeTimeline();
-		            System.out.println("------------------------\n Showing home timeline \n------------------------");
+		            Collections.reverse(statuses);
+		           // System.out.println("------------------------\n Showing home timeline \n------------------------");
 		    		
-		            //twitter4j.Twitter tw=tf.getInstance();
+		           //twitter4j.Twitter tw = tf.getInstance();
 		            
 		          
-		  
+		           JFrame frame = new JFrame("Tweets publicados");
+		    		
+		    		// para que o botao de fechar a janela termine a aplicacao
+		           frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		    		
+		    	
+		    		
+		    		frame.setLayout(new GridLayout(0,2));
+		    		
+		    		// para que a janela se redimensione de forma a ter todo o seu conteudo visivel
+		    		frame.pack();
 		            
 		            
 		            //Status stat = ((TweetsResources) tf).updateStatus(" Welcome to my twitter");
@@ -152,12 +143,22 @@ public class Tela_2 extends JFrame {
 		            	// Temos que colocar os nossos Twitters aqui **********
 		            	
 						if (status.getUser().getName() != null && status.getUser().getName().contains("Iran Carimo")) {
-							System.out.println(status.getUser().getName() + ":" + status.getText());
 							counter++;
+							frame.add(new JLabel("Tweet nÃºmero " + counter + " : "));
+						    frame.add(new JLabel(status.getText()));   
+							frame.add(new JLabel("---------------"));
+							frame.add(new JLabel("---------------"));
+							
+							
 						}
 						counterTotal++;
 		            }
-		    		System.out.println("-------------\nNº of Results: " + counter+"/"+counterTotal);
+		            
+		            frame.add(new JLabel("NÂº de tweets: " + counter + "/" + counterTotal));
+		            
+		            frame.pack();
+		            frame.setVisible(true);
+		    		
 		        } catch (Exception e) { System.out.println(e.getMessage()); }
 
 				

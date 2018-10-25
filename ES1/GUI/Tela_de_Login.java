@@ -81,14 +81,13 @@ public class Tela_de_Login extends JFrame {
 			
 			
 				
-if(textField_username.getText().equals("iran") && textField_password.getText().equals("1234")) {
+			if(textField_username.getText().equals("iran") && textField_password.getText().equals("1234")) {
 					
-					Tela_2 tela_2= new Tela_2();
-					tela_2.setVisible(true);
-					dispose();
+				Tela_2 tela_2= new Tela_2();
+				tela_2.setVisible(true);
+				dispose();
 					
-					
-				}
+			}
 				else { JOptionPane.showMessageDialog(null, "Acesso negado");}
 
 
