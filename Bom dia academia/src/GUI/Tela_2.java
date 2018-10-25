@@ -60,7 +60,7 @@ public class Tela_2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			
 			
-				try {
+		try {
 		        	ConfigurationBuilder cb = new ConfigurationBuilder();
 		        	cb.setDebugEnabled(true)
 		        	  .setOAuthConsumerKey("2yLs0GI3Rs3V9o9ncHGLEg3OL")

@@ -12,9 +12,9 @@ public class Twitter {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
+		/*
 		
-		
-	/*	try {
+		try {
         	ConfigurationBuilder cb = new ConfigurationBuilder();
         	cb.setDebugEnabled(true)
         	  .setOAuthConsumerKey("2yLs0GI3Rs3V9o9ncHGLEg3OL")
@@ -51,6 +51,8 @@ public class Twitter {
         
         
         */
+		
+		
 
 	}
 	}
