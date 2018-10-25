@@ -32,6 +32,7 @@ public class Tela_de_Login extends JFrame {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
+					
 				}
 			}
 		});
