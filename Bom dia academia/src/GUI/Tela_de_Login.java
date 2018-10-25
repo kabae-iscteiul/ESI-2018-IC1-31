@@ -54,6 +54,7 @@ public class Tela_de_Login extends JFrame {
 		lblBemVindo.setBounds(170, 32, 107, 16);
 		contentPane.add(lblBemVindo);
 		
+	
 		JLabel lblUsername = new JLabel("Username:");
 		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblUsername.setBounds(61, 77, 97, 19);
