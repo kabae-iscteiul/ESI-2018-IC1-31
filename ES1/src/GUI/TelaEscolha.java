@@ -50,8 +50,7 @@ public class TelaEscolha {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaEscolha window = new TelaEscolha();
-					window.frame.setVisible(true);
+					new TelaEscolha();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

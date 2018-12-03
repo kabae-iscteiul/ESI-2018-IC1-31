@@ -78,7 +78,6 @@ public class TelaLoginTwitter extends JFrame {
 			public void run() {
 				try {
 					tlt = new TelaLoginTwitter();
-					tlt.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -180,13 +179,13 @@ public class TelaLoginTwitter extends JFrame {
 		gbc_btnLogin.gridx = 2;
 		gbc_btnLogin.gridy = 4;
 		contentPane.add(btnLogin, gbc_btnLogin);
+		this.setVisible(true);
 	}
 
 	public void autenticar(String username) throws TwitterException, MessagingException {
 		if (username.equals("Iran Jacinto")) {
-			menuTwitter mm = new menuTwitter(username);
-			mm.setVisible(true);
-			this.dispose();
+			new menuTwitter(username);
+			setVisible(false);
 		} else {
 			JOptionPane.showMessageDialog(null, "Dados de acesso incorretos. Por favor tente novamente.");
 			new TelaLoginTwitter().setVisible(true);

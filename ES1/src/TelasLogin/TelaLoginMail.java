@@ -212,8 +212,7 @@ public class TelaLoginMail extends JFrame {
 			store.connect();
 			Folder emailFolder = store.getFolder("INBOX");
 			emailFolder.open(Folder.READ_ONLY);
-			MenuMail mm = new MenuMail(emailFolder, user, pass);
-			mm.setVisible(true);
+			new MenuMail(emailFolder, user, pass);
 			this.dispose();
 		} catch (MessagingException e) {
 			JOptionPane.showMessageDialog(null, "Dados de acesso incorretos. Por favor tente novamente.");

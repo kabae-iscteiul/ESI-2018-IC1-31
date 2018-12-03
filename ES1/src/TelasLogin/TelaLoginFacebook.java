@@ -161,10 +161,8 @@ public class TelaLoginFacebook extends JFrame {
 	
 	public void login() {
 		if (validateUser()) {
-			menuFacebook menu = null;
 			try {
-				menu = new menuFacebook(me.getName(), accessToken);
-				menu.setVisible(true);
+				new menuFacebook(me.getName(), accessToken);
 				dispose();
 			} catch (Exception e1) {
 				e1.printStackTrace();

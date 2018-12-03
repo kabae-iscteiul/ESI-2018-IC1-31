@@ -107,7 +107,6 @@ public class menuTwitter extends JFrame {
 		this.username = username;
 		autenticar();
 		interfaceGrafica();
-		this.frame.setVisible(true);
 	}
 	
 	public void autenticar() {
@@ -124,7 +123,7 @@ public class menuTwitter extends JFrame {
 	public void interfaceGrafica() {
 
 		frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setBackground(Color.WHITE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.rowHeights = new int[] { 452 };
@@ -254,8 +253,7 @@ public class menuTwitter extends JFrame {
 		panel_3.add(btnPublicarTweet, gbc_btnPublicarTweet);
 		btnPublicarTweet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GUIEnviarTweet gem = new GUIEnviarTweet(tt);
-				gem.setVisible(true);
+				new GUIEnviarTweet(tt);
 			}
 		});
 		btnPublicarTweet.setBounds(6, 84, 176, 26);
@@ -370,7 +368,7 @@ public class menuTwitter extends JFrame {
 		gbc_panel_1.gridx = 1;
 		gbc_panel_1.gridy = 0;
 		frame.getContentPane().add(panel_1, gbc_panel_1);
-
+		frame.setVisible(true);
 		frame.pack();
 	}
 
@@ -504,7 +502,7 @@ public class menuTwitter extends JFrame {
 			});
 
 			frame.pack();
-			frame.setVisible(true);
+			frame.setVisible(true); 
 		}
 
 		public void postarTweet(String conteudo) throws TwitterException {
