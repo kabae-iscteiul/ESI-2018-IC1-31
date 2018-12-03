@@ -46,6 +46,8 @@ import javax.swing.border.MatteBorder;
 
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
+import GUI.TelaEscolha;
+
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.GridBagConstraints;
@@ -90,7 +92,7 @@ public class TelaLoginTwitter extends JFrame {
 
 	public void interfaceGrafica() {
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 494, 210);
 		contentPane = new JPanel();
 		contentPane.setBorder(new MatteBorder(2, 2, 2, 2, (Color) Color.BLACK));
@@ -133,19 +135,19 @@ public class TelaLoginTwitter extends JFrame {
 		gbc_textField_username.gridy = 2;
 		contentPane.add(textField_username, gbc_textField_username);
 		textField_username.setColumns(10);
-		textField_username.addKeyListener (new KeyAdapter() {
+		textField_username.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-						try {
-							autenticar(textField_username.getText());
-						} catch (TwitterException e1) {
-							e1.printStackTrace();
-						} catch (MessagingException e1) {
+					try {
+						autenticar(textField_username.getText());
+					} catch (TwitterException e1) {
+						e1.printStackTrace();
+					} catch (MessagingException e1) {
 						e1.printStackTrace();
 					}
-			}	
-	        }  
-	    });
+				}
+			}
+		});
 
 		JLabel lblNewLabel = new JLabel("");
 		Image mail = new ImageIcon(this.getClass().getResource("/images/twitter.png")).getImage();
@@ -157,7 +159,7 @@ public class TelaLoginTwitter extends JFrame {
 		gbc_lblNewLabel.gridx = 4;
 		gbc_lblNewLabel.gridy = 1;
 		contentPane.add(lblNewLabel, gbc_lblNewLabel);
-	   
+
 		JButton btnLogin = new JButton("Autenticar");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -179,20 +181,19 @@ public class TelaLoginTwitter extends JFrame {
 		gbc_btnLogin.gridy = 4;
 		contentPane.add(btnLogin, gbc_btnLogin);
 	}
-	
+
 	public void autenticar(String username) throws TwitterException, MessagingException {
-		if(username.equals("Iran Jacinto")) {	
-	    	menuTwitter mm = new menuTwitter(username); 
+		if (username.equals("Iran Jacinto")) {
+			menuTwitter mm = new menuTwitter(username);
 			mm.setVisible(true);
 			this.dispose();
+		} else {
+			JOptionPane.showMessageDialog(null, "Dados de acesso incorretos. Por favor tente novamente.");
+			new TelaLoginTwitter().setVisible(true);
+			this.dispose();
+			return;
 		}
-		else {
-		JOptionPane.showMessageDialog(null, "Dados de acesso incorretos. Por favor tente novamente.");
-		new TelaLoginTwitter().setVisible(true);
-		this.dispose();
-		return;
-		}
-		
-		
-	}	
+	}
+	
+	
 }
