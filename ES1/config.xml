@@ -1,0 +1,24 @@
+
+<!--Twitter-->
+<usersTwitter>
+	<user>
+		<username>iran</username>
+		<password>1234</password>
+	</user>		
+</usersTwitter>
+
+<!--Facebook-->
+<usersFacebook>
+	<user>
+		<username>iran</username>
+		<password>1234</password>
+	</user>		
+</usersTwitter>
+
+<!--Mail-->
+<usersMail>
+	<user>
+		<username>iran</username>
+		<password>1234</password>
+	</user>		
+</usersTwitter>
