@@ -234,8 +234,7 @@ public class menuFacebook extends JFrame {
 		btnPostar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					EnviarPostGUI epg = new EnviarPostGUI(accessToken);
-					epg.setVisible(true);
+					new EnviarPostGUI(accessToken);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
