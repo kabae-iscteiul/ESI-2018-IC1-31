@@ -223,8 +223,7 @@ public class MenuMail extends JFrame {
 		panel_3.add(button, gbc_button);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GUIEnviarMail gem = new GUIEnviarMail(user, pass);
-				gem.setVisible(true);
+				new GUIEnviarMail(user, pass);
 			}
 		});
 		button.setBounds(6, 84, 176, 26);
