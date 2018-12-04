@@ -398,6 +398,16 @@ public class menuTwitter extends JFrame {
 
 		tweets = filtroData(statusesFiltered);
 		trocarDeInformacao(tweets);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	public DefaultListModel<String> filtroData(List<Status> dataPorFiltrar) throws MessagingException {
