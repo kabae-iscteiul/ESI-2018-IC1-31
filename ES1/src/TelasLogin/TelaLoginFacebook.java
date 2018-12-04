@@ -69,6 +69,7 @@ public class TelaLoginFacebook extends JFrame {
 					tlm.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
+					
 				}
 			}
 		});
