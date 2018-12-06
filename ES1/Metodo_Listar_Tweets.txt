@@ -1,0 +1,19 @@
+public void listarTweets() throws TwitterException, MessagingException {
+
+		List<Status> statusesIran = new ArrayList<>();
+            List<Status> statuses = tt.getHomeTimeline();
+            Collections.reverse(statuses);
+          DefaultListModel<String> lista = new DefaultListModel<>();
+            for (Status status : statuses) {
+				if (status.getUser().getName() != null && status.getUser().getName().contains("Iran Carimo")) {
+					statusesIran.add(status);;
+				}
+				
+            }
+
+		DefaultListModel<String> tweets = new DefaultListModel<>();
+
+		tweets = filtroData(statusesIran);
+
+		trocarDeInformacao(tweets);
+	}
